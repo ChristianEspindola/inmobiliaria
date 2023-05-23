@@ -27,6 +27,10 @@ body.dark-mode {
   text-align: center;
   border-radius: 1rem;
 }
+.card-img-top {
+  max-width: 320px;
+  max-height: 200px;
+}
 
 .card-text,
 .card-title,

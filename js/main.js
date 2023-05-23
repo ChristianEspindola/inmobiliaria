@@ -42,14 +42,16 @@ function borrar(borraropcion) {
 ////////////////////////////////////////////////////// crear productos
 
 class Inmueble {
-  constructor(direccion, barrio, tipo, metrosCuadrados, valor) {
+  constructor(direccion, barrio, tipo, metrosCuadrados, valor, img) {
     this.direccion = direccion;
     this.barrio = barrio;
     this.tipo = tipo;
     this.metrosCuadrados = parseFloat(metrosCuadrados);
     this.valor = parseFloat(valor);
+    this.img = img;
   }
 }
+
 const inmuebles = JSON.parse(localStorage.getItem("inmuebles")) || [];
 
 const formularioo = () => {
@@ -57,20 +59,25 @@ const formularioo = () => {
   PublicarInmueble.addEventListener("submit", (evento) => {
     evento.preventDefault();
     const datos = evento.target.elements;
+
+    const img = datos["img"].files[0];
+    const imgURL = URL.createObjectURL(img); // Obtener la URL de la imagen seleccionada
+
     const inmueble = new Inmueble(
       datos["direccion"].value,
       datos["barrio"].value,
       datos["tipo"].value,
       datos["metrosCuadrados"].value,
-      datos["valorPropiedad"].value
+      datos["valorPropiedad"].value,
+      imgURL
     );
     inmuebles.push(inmueble);
     localStorage.setItem("inmuebles", JSON.stringify(inmuebles));
 
     Toastify({
-      text: "Inmueble publicado actualizar para visualizar ",
+      text: "Inmueble publicado. Actualiza para visualizar.",
       duration: 4500,
-      destination: "https://github.com/apvarun/toastify-js", ///// recargar la pag
+      destination: "index.html", // Recargar la página actual
       newWindow: true,
       close: true,
       gravity: "top",
@@ -83,6 +90,7 @@ const formularioo = () => {
     }).showToast();
   });
 };
+
 formularioo();
 
 const editarinmuebles = (data) => {
