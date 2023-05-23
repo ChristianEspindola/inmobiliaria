@@ -1,7 +1,7 @@
 const inmueble = [
   {
     id: 1,
-    img: "img/casita01.jpg" /* agregar inmobiliaria/   */,
+    img: "./img/casita01.jpg",
     direccion: "AV acoyte 300",
     barrio: "caballito",
     tipo: "casa",
@@ -21,7 +21,7 @@ const inmueble = [
   },
   {
     id: 3,
-    img: " img/depto01.jpg",
+    img: " ./img/depto01.jpg",
     direccion: "AV gaona 1500",
     barrio: "flores",
     tipo: "depto",
@@ -31,7 +31,7 @@ const inmueble = [
   },
   {
     id: 4,
-    img: " img/depto02.jpg",
+    img: " ./img/depto02.jpg",
     direccion: "gavilan 1100",
     barrio: "flores",
     tipo: "depto",
@@ -42,7 +42,7 @@ const inmueble = [
 
   {
     id: 5,
-    img: "img/cochera01.jpg ",
+    img: "./img/cochera01.jpg ",
     direccion: "avellaneda 350",
     barrio: "caballito",
     tipo: "cochera",
@@ -53,7 +53,7 @@ const inmueble = [
 
   {
     id: 6,
-    img: "img/cochera02.jpg ",
+    img: "./img/cochera02.jpg ",
     direccion: "caracas 1150",
     barrio: "flores",
     tipo: "cochera",
