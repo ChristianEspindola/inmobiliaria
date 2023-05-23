@@ -1,7 +1,7 @@
 const inmueble = [
   {
     id: 1,
-    img: " ../img/casita01.jpg" /* agregar inmobiliaria/   */,
+    img: "../img/casita01.jpg" /* agregar inmobiliaria/   */,
     direccion: "AV acoyte 300",
     barrio: "caballito",
     tipo: "casa",
@@ -11,7 +11,7 @@ const inmueble = [
   },
   {
     id: 2,
-    img: " ./img/casita02.jpg",
+    img: "./img/casita02.jpg",
     direccion: "AV rivadavia 5555",
     barrio: "caballito",
     tipo: "casa",
