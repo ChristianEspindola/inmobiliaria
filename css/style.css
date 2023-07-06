@@ -12,7 +12,15 @@ body.dark-mode {
   background-color: #090417;
   color: rgb(6, 1, 134);
 }
-
+.card iframe {
+  width: 286px;
+  height: 180px;
+  border-radius: 1rem;
+}
+.card-img-top {
+  width: 320px;
+  height: 200px;
+}
 #modo {
   margin-top: 2%;
   margin-left: 75%;
@@ -27,11 +35,6 @@ body.dark-mode {
   text-align: center;
   border-radius: 1rem;
 }
-.card-img-top {
-  max-width: 320px;
-  max-height: 200px;
-}
-
 .card-text,
 .card-title,
 div {
@@ -58,7 +61,7 @@ div {
   display: flex;
   flex-direction: column;
   padding: 1% 1%;
-  min-width: 225px;
+  min-width: 250px;
   gap: 10px;
   background-color: #ededed;
   margin: calc(10% + 10%);

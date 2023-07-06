@@ -96,8 +96,6 @@
         </div>
       </div>
       <!-- selectionComprar  -->
-      <!-- ver lo de cargar mapa  y ver tema filtros  / ver el tema fotos en github  -->
-
       <div id="comprar">
         <a id="selectionComprar"> </a>
         <div class="container">
@@ -121,6 +119,7 @@
               <option value="casa">Casa</option>
               <option value="depto">Departamento</option>
               <option value="cochera">Cochera</option>
+              <option value="cochera">Terreno</option>
             </select>
           </label>
           <input
@@ -137,7 +136,9 @@
             placeholder=" valor"
             required
           />
+          <p>&#x1F4F7; Foto obligaria &#x1F4F7;</p>
           <input type="file" id="img" name="img" accept="image/*" />
+          <!--las url de las foto las guarda en el local, puede que si probas tire error por eso -->
           <button class="btn btn-primary" type="submit">Publicar</button>
           <input
             class="btn btn-outline-primary"
@@ -149,7 +150,7 @@
       </div>
     </main>
     <footer></footer>
-    <!-- Libreria  -->
+    <!-- Librerias  -->
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"

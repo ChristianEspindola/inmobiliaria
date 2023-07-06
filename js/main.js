@@ -1,3 +1,12 @@
+let inmuebles = [];
+
+fetch("./js/inmuebles.json")
+  .then((response) => response.json())
+  .then((data) => {
+    inmuebles = data;
+    mostrarInmuebles(inmuebles);
+  });
+
 document.addEventListener("DOMContentLoaded", function () {
   const bienvenida = document.getElementById("bienvenida");
   const botonEnviar = document.getElementById("enviar");
@@ -9,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("nombre", nombre);
   });
 });
-//////////////////
 
 function borrar(borraropcion) {
   if (borraropcion === 1) {
@@ -41,8 +49,9 @@ function borrar(borraropcion) {
 
 ////////////////////////////////////////////////////// crear productos
 
-class Inmueble {
-  constructor(direccion, barrio, tipo, metrosCuadrados, valor, img) {
+class Inmueblee {
+  constructor(id, direccion, barrio, tipo, metrosCuadrados, valor, img) {
+    this.id = id;
     this.direccion = direccion;
     this.barrio = barrio;
     this.tipo = tipo;
@@ -52,8 +61,6 @@ class Inmueble {
   }
 }
 
-const inmuebles = JSON.parse(localStorage.getItem("inmuebles")) || [];
-
 const formularioo = () => {
   const PublicarInmueble = document.querySelector("#formularioo");
   PublicarInmueble.addEventListener("submit", (evento) => {
@@ -61,9 +68,12 @@ const formularioo = () => {
     const datos = evento.target.elements;
 
     const img = datos["img"].files[0];
-    const imgURL = URL.createObjectURL(img); // Obtener la URL de la imagen seleccionada
+    const imgURL = URL.createObjectURL(img);
 
-    const inmueble = new Inmueble(
+    const nuevoId = inmuebles.length + 1;
+
+    const inmueble = new Inmueblee(
+      nuevoId,
       datos["direccion"].value,
       datos["barrio"].value,
       datos["tipo"].value,
@@ -73,20 +83,20 @@ const formularioo = () => {
     );
     inmuebles.push(inmueble);
     localStorage.setItem("inmuebles", JSON.stringify(inmuebles));
-
+    mostrarInmuebles(inmuebles);
     Toastify({
       text: "Inmueble publicado. Actualiza para visualizar.",
       duration: 4500,
-      destination: "index.html", // Recargar la página actual
+      destination: "index.html",
       newWindow: true,
-      close: true,
+      close: false,
       gravity: "top",
       position: "left",
       stopOnFocus: true,
       style: {
         background: "linear-gradient(to right, #013574, #0073FF)",
       },
-      onClick: function () {}, // Callback after click
+      onClick: function () {},
     }).showToast();
   });
 };
@@ -94,20 +104,19 @@ const formularioo = () => {
 formularioo();
 
 const editarinmuebles = (data) => {
-  data.forEach((inmueble) => {
+  data.forEach((inmuebles) => {
     const cardInmueble = document.createElement(`div`);
     cardInmueble.setAttribute(`id`, ` tarjeta-inmueble-editar`);
     cardInmueble.innerHTML = `
     <div class="card"  >
-  <img class="card-img-top" src="${inmueble?.img}" alt="${inmueble?.direccion}">
+  <img class="card-img-top" src="${inmuebles?.img}" alt="${inmuebles?.direccion}">
   <div class="card-body ">
-    <h4 class = "direccion">  ${inmueble?.direccion}</h4>
-    <h5 class = "Mapa"> ${inmueble?.mapa}</h5>
-    <h5 class = "tipo">tipo: ${inmueble?.tipo}</h5>
-    <h5 class = "barrio">barrio: ${inmueble?.barrio}</h5>
-    <h5 class = "Mcuadrados">m2 : ${inmueble?.metrosCuadrados}</h5>
-        <h4 class = "valor">valor : USD${inmueble?.valor}</h4>
-    <button type="button" id="${inmueble?.id}" class="btn btn-primary Comprar">COMPRAR</button>
+    <h4 class = "direccion">  ${inmuebles?.direccion}</h4>
+        <h5 class = "tipo">tipo: ${inmuebles?.tipo}</h5>
+    <h5 class = "barrio">barrio: ${inmuebles?.barrio}</h5>
+    <h5 class = "Mcuadrados">m2 : ${inmuebles?.metrosCuadrados}</h5>
+        <h4 class = "valor">valor : USD${inmuebles?.valor}</h4>
+    <button type="button" id="${inmuebles?.id}" class="btn btn-primary Comprar">COMPRAR</button>
   </div>
 </div>`;
 
@@ -120,20 +129,19 @@ const editarinmuebles = (data) => {
 const stockInmuebles = document.querySelector(`#contenedor-inmuebles`);
 
 const mostrarInmuebles = (data) => {
-  data.forEach((inmueble) => {
+  data.forEach((inmuebles) => {
     const cardInmueble = document.createElement(`div`);
     cardInmueble.setAttribute(`id`, ` tarjeta-inmueble`);
     cardInmueble.innerHTML = `
     <div class="card"  >
-  <img class="card-img-top" src="${inmueble?.img}" alt="${inmueble?.direccion}">
+  <img class="card-img-top" id="foto" src="${inmuebles?.img}" alt="${inmuebles?.direccion}">
   <div class="card-body ">
-    <h4 class = "direccion">  ${inmueble?.direccion}</h4>
-    <h5 class = "Mapa"> ${inmueble?.mapa}</h5>
-    <h5 class = "tipo">tipo: ${inmueble?.tipo}</h5>
-    <h5 class = "barrio">barrio: ${inmueble?.barrio}</h5>
-    <h5 class = "Mcuadrados">m2 : ${inmueble?.metrosCuadrados}</h5>
-        <h4 class = "valor">valor : USD${inmueble?.valor}</h4>
-    <button type="button" id="${inmueble?.id}" class="btn btn-primary Comprar">COMPRAR</button>
+    <h4 class = "direccion">  ${inmuebles?.direccion}</h4>
+        <h5 class = "tipo">tipo: ${inmuebles?.tipo}</h5>
+    <h5 class = "barrio">barrio: ${inmuebles?.barrio}</h5>
+    <h5 class = "Mcuadrados">m2 : ${inmuebles?.metrosCuadrados}</h5>
+        <h4 class = "valor">valor : USD${inmuebles?.valor}</h4>
+    <button type="button" id="${inmuebles?.id}" class="btn btn-primary Comprar">COMPRAR</button>
   </div>
 </div>`;
 
@@ -146,31 +154,36 @@ const mostrarInmuebles = (data) => {
     });
   });
 };
-mostrarInmuebles(inmueble); /// divido los inmuebles creados de antemano
-mostrarInmuebles(inmuebles); ///// con los productos que el cliente quiere publicar
+
+mostrarInmuebles(inmuebles);
 
 const carrito = [];
 
 function agregar(id) {
+  let InmuebleEncontrado = inmuebles.find((inmue) => inmue.id === parseInt(id));
+
   const existe = carrito.some((inmue) => inmue.id === parseInt(id));
 
   if (existe) {
     Swal.fire({
       icon: "info",
-      title: "Inmueble ya adquirido",
+      title: `El inmueble de ${
+        InmuebleEncontrado && InmuebleEncontrado.direccion
+          ? InmuebleEncontrado.direccion
+          : ""
+      } ya lo adquiriste`,
     });
   } else {
-    let InmuebleEncontrado = inmueble.find(
-      (inmue) => inmue.id === parseInt(id)
-    );
-    carrito.push(InmuebleEncontrado);
-    console.log(carrito);
+    if (InmuebleEncontrado) {
+      carrito.push(InmuebleEncontrado);
+      console.log(carrito);
 
-    Swal.fire({
-      icon: "success",
-      title: "felicidades",
-      text: "Inmueble comprado ",
-    });
+      Swal.fire({
+        icon: "success",
+        title: "¡Felicidades!",
+        text: "Inmueble comprado",
+      });
+    }
   }
 }
 

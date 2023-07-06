@@ -1,4 +1,4 @@
-const inmueble = [
+/*const inmueble = [
   {
     id: 1,
     img: "./img/casita01.jpg",
@@ -61,4 +61,4 @@ const inmueble = [
     valor: 21000,
     mapa: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.4895859400303!2d-58.46915302422001!3d-34.61706617294957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9f4262bb3a5%3A0x8f89f79826398244!2sCaracas%201150%2C%20C1406AZV%20CABA!5e0!3m2!1ses!2sar!4v1684817098593!5m2!1ses!2sar" width="286" height="180" style="border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`,
   },
-];
+];*/

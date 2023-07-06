@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "img": "./img/casita01.jpg",
+    "direccion": "AV acoyte 300",
+    "barrio": "caballito",
+    "tipo": "casa",
+    "metrosCuadrados": 35,
+    "valor": 87500
+  },
+  {
+    "id": 2,
+    "img": "./img/casita02.jpg",
+    "direccion": "AV rivadavia 5555",
+    "barrio": "caballito",
+    "tipo": "casa",
+    "metrosCuadrados": 40,
+    "valor": 80000
+  },
+  {
+    "id": 3,
+    "img": " ./img/depto01.jpg",
+    "direccion": "AV gaona 1500",
+    "barrio": "flores",
+    "tipo": "depto",
+    "metrosCuadrados": 60,
+    "valor": 129000
+  },
+  {
+    "id": 4,
+    "img": " ./img/depto02.jpg",
+    "direccion": "gavilan 1100",
+    "barrio": "flores",
+    "tipo": "depto",
+    "metrosCuadrados": 95,
+    "valor": 209000
+  },
+
+  {
+    "id": 5,
+    "img": "./img/cochera01.jpg ",
+    "direccion": "avellaneda 350",
+    "barrio": "caballito",
+    "tipo": "cochera",
+    "metrosCuadrados": 12,
+    "valor": 19200
+  },
+
+  {
+    "id": 6,
+    "img": "./img/cochera02.jpg ",
+    "direccion": "caracas 1150",
+    "barrio": "flores",
+    "tipo": "cochera",
+    "metrosCuadrados": 15,
+    "valor": 21000
+  }
+]
